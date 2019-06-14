@@ -35,3 +35,8 @@ HISTFILESIZE=2000
 alias ll="ls -lah"
 alias lt="ls -laht"
 alias c="cd -"
+# Below is from https://github.com/aashutoshrathi/awesome-bashrc#fast-upwards-navigation
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
