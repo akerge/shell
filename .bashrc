@@ -24,9 +24,9 @@ RESET='\[$(tput sgr0)\]'
 
 if [ $(id -u) -eq 0 ]; then
     # apostrophes work within quotation marks.
-    PS1="$NORMAL\t·$BOLD_RED\u@\h$NORMAL·$GREEN\W·$NORMAL\$ $RESET"
+    PS1="$NORMAL\t·$BOLD_RED\u@\h$NORMAL·$GREEN$DIR·$NORMAL\$ $RESET"
 else
-    PS1="${GREEN}\t${NORMAL}·${BOLD_BLUISH}\u@\h${NORMAL}·${BLUE}\W${NORMAL}·\$ ${RESET}"
+    PS1="${GREEN}\t${NORMAL}·${BOLD_BLUISH}\u@\h${NORMAL}·${BLUE}$DIR${NORMAL}·\$ ${RESET}"
 fi
 
 HISTSIZE=1000
