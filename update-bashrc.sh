@@ -9,5 +9,5 @@
 #bash_version   :4.4.12(1)-release
 #============================================================================
 
-rm .bashrc
-wget https://github.com/akerge/shell/raw/master/.bashrc
+rm ~/.bashrc
+wget --output-document ~/.bashrc https://github.com/akerge/shell/raw/master/.bashrc
