@@ -3,20 +3,19 @@
 PATH="/usr/local/bin:/usr/bin:/bin"
 # ^ this should be idempotent
 
-RED='\[\033[31m\]'
-BOLD_RED='\[\033[1;31m\]'
-YELLOW='\[\033[33m\]'
-GREEN='\[\033[32m\]'
-BLUE='\[\033[01;34m\]'
-BOLD_BLUISH='\[\033[01;32m\]'
-NORMAL='\[\033[00m\]'
+red='\[\033[31m\]'
+bold_red='\[\033[1;31m\]'
+yellow='\[\033[33m\]'
+green='\[\033[32m\]'
+blue='\[\033[01;34m\]'
+bold_bluish='\[\033[01;32m\]'
+normal='\[\033[00m\]'
 
-USR='\u'
-TIME='\t'
-PWD='\w'
-DIR='\W'
-RIGHTS='\$'
-RESET='\[$(tput sgr0)\]'
+usr='\u'
+clock='\t'
+location='\W'
+rights='\$'
+default='\[$(tput sgr0)\]'
 
 # TODO: add install script for necessary applications (snap, slack, etc.)
 # NOTES:
@@ -24,9 +23,9 @@ RESET='\[$(tput sgr0)\]'
 
 if [ $(id -u) -eq 0 ]; then
     # apostrophes work within quotation marks.
-    PS1="$NORMAL\t·$BOLD_RED\u@\h$NORMAL·$GREEN$DIR·$NORMAL\$ $RESET"
+    PS1="$normal\t·$bold_red\u@\h$normal·$green$location·$normal\$ $default"
 else
-    PS1="$GREEN\t$NORMAL·$BOLD_BLUISH\u@\h$NORMAL·$BLUE$DIR$NORMAL·\$ $RESET"
+    PS1="$green\t$normal·$bold_bluish\u@\h$normal·$blue$location$normal·\$ $default"
 fi
 
 HISTSIZE=1000
