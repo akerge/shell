@@ -19,15 +19,14 @@ default='\[$(tput sgr0)\]'
 
 # TODO: 
 #  * add install script for necessary applications (snap, slack, etc.)
-#  * amend timestamp to newline after carriage is returned for up to date time
 # NOTES:
 #  * bash 4.4.12 on Debian doesn't really like \e as an escape character
 
 if [ $(id -u) -eq 0 ]; then
     # apostrophes work within quotation marks.
-    PS1="$normal\t·$bold_red\u@\h$normal·$green$location·$normal\$ $default"
+    PS1="^$normal\t\n·$bold_red\u@\h$normal·$green$location·$normal\$ $default"
 else
-    PS1="$green\t$normal·$bold_bluish\u@\h$normal·$blue$location$normal·\$ $default"
+    PS1="^$green\t\n$normal·$bold_bluish\u@\h$normal·$blue$location$normal·\$ $default"
 fi
 
 HISTSIZE=1000
