@@ -17,7 +17,9 @@ location='\W'
 rights='\$'
 default='\[$(tput sgr0)\]'
 
-# TODO: add install script for necessary applications (snap, slack, etc.)
+# TODO: 
+#  * add install script for necessary applications (snap, slack, etc.)
+#  * amend timestamp to newline after carriage is returned for up to date time
 # NOTES:
 #  * bash 4.4.12 on Debian doesn't really like \e as an escape character
 
