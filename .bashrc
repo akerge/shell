@@ -40,7 +40,9 @@ alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias .....='cd ../../../../'
+alias cdp='cd -P' # not this tho
 # this is prolly also copied from the link before
+# git
 alias clone='git clone'
 alias commit='git commit -m'
 alias push='git push'
@@ -48,4 +50,7 @@ alias status='git status'
 alias log='git log'
 alias pull='git pull'
 alias add='git add'
-alias cdp='cd -P'
+# apt
+alias update='sudo apt update'
+alias list='apt list --upgradable'
+alias upgrade='sudo apt upgrade'
