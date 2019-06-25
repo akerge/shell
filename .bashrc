@@ -17,7 +17,13 @@ location='\W'
 rights='\$'
 default='\[$(tput sgr0)\]'
 
-tiem='trap date +%T DEBUG'
+
+tiem='trap "date +%T" DEBUG'
+
+# following prepends 24h time before command execution
+PROMPT_COMMAND='date +%T'
+# with trap prints time twice.
+#PROMPT_COMMAND='trap "date +%T" DEBUG'
 
 # TODO: 
 #  * add install script for necessary applications (snap [or flatpak or better], slack, etc.)
