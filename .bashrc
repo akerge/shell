@@ -18,7 +18,7 @@ rights='\$'
 default='\[$(tput sgr0)\]'
 
 # following prepends 24h time before command execution
-PROMPT_COMMAND='date +%T'
+#PROMPT_COMMAND='date +%T'
 # with trap prints time twice.
 #PROMPT_COMMAND='trap "date +%T" DEBUG'
 
