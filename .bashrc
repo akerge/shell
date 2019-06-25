@@ -34,9 +34,9 @@ PROMPT_COMMAND='date +%T'
 input=""
 if [ $(id -u) -eq 0 ]; then
     # apostrophes work within quotation marks.
-    PS1="^$normal\t\n·$bold_red\u@\h$normal·$green$location·$normal\$ $default"
+    PS1="$normal·$bold_red\u@\h$normal·$green$location·$normal\$ $default"
 else
-    PS1="^$green\t\n$normal·$bold_bluish\u@\h$normal·$blue$location$normal·\$ $default"
+    PS1="$normal·$bold_bluish\u@\h$normal·$blue$location$normal·\$ $default"
 fi
 
 HISTSIZE=1000
