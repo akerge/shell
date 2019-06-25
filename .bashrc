@@ -17,9 +17,6 @@ location='\W'
 rights='\$'
 default='\[$(tput sgr0)\]'
 
-
-tiem='trap "date +%T" DEBUG'
-
 # following prepends 24h time before command execution
 PROMPT_COMMAND='date +%T'
 # with trap prints time twice.
@@ -64,3 +61,5 @@ alias add='git add'
 alias update='sudo apt update'
 alias list='apt list --upgradable'
 alias upgrade='sudo apt upgrade'
+
+trap "date +%T" DEBUG
