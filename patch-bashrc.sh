@@ -11,5 +11,5 @@ echo "Pulling updates"
 git pull
 echo "Diff'ing .bashrc"
 diff -u ~/.bashrc .bashrc > bashrc.patch
-patch ~/.bashrc bashrc.patch
+patch -b ~/.bashrc bashrc.patch
 rm bashrc.patch
