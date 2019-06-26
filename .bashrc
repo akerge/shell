@@ -55,11 +55,17 @@ alias commit='git commit -m'
 alias push='git push'
 alias status='git status'
 alias log='git log'
+alias reflog='git reflog'
+alias logref='git log --graph --decorate --oneline $(git rev-list -g --all)'
 alias pull='git pull'
 alias add='git add'
+alias resetsoft='git reset --soft '
+alias resethard='git reset --hard '
 # apt
 alias update='sudo apt update'
 alias list='apt list --upgradable'
 alias upgrade='sudo apt upgrade'
+# time
+alias now='date +"%T"'
 
 trap "date +%T" DEBUG
