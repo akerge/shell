@@ -67,5 +67,6 @@ alias list='apt list --upgradable'
 alias upgrade='sudo apt upgrade'
 # time
 alias now='date +"%T"'
+alias t='date +"%T"'
 
 trap "date +%T" DEBUG
