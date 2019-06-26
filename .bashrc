@@ -1,4 +1,6 @@
-# shell profile preferences
+# Personal shell preferences.
+# Created by Artur Kerge
+# Sometime in 2019 AD
 
 PATH="/usr/local/bin:/usr/bin:/bin"
 # ^ this should be idempotent
