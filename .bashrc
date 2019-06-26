@@ -67,6 +67,7 @@ alias resethard='git reset --hard '
 alias update='sudo apt update'
 alias list='apt list --upgradable'
 alias upgrade='sudo apt upgrade'
+alias install='sudo apt install'
 # time
 alias now='date +"%T"'
 alias t='date +"%T"'
