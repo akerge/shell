@@ -25,7 +25,9 @@ default='\[$(tput sgr0)\]'
 #PROMPT_COMMAND='trap "date +%T" DEBUG'
 
 # TODO: 
-#  * add install script for necessary applications (snap [or flatpak or better], slack, etc.)
+#  * add install script for necessary applications
+#    * snap [or flatpak or better] for slack
+#    * neofetch
 #  * show time after command has been entered. Either with PROMPT_COMMAND or bash-preexex
 #    https://github.com/rcaloras/bash-preexec/blob/master/bash-preexec.sh
 # NOTES:
