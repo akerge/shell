@@ -53,6 +53,7 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../'
 alias cdp='cd -P' # not this tho
 alias -='cd -' # this neither
+alias cdr='cd -'
 # this is prolly also copied from the link before
 # git
 alias clone='git clone'
