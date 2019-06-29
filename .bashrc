@@ -45,7 +45,7 @@ HISTFILESIZE=2000
 
 alias ll="ls -lah"
 alias lt="ls -laht"
-alias c="cd -" # change to previous directory cd-d from
+alias fd="cd -" # change to previous directory cd-d from
 alias cdr='cd -'
 # Below is from https://github.com/aashutoshrathi/awesome-bashrc#fast-upwards-navigation
 alias ..='cd ..'
