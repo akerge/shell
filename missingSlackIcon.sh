@@ -6,7 +6,9 @@
 #version         :0.1
 #usage		 :./missingSlashIcon.sh
 #==============================================================================
-if (( $EUID != 0 )); then
+
+if (( $EUID != 0 )); then # this will check if user is in sudoers.
+	  # From man-pages: "Expands the effective user ID of current user"
     echo "Please run as sudo"
     exit
 else
