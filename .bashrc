@@ -1,6 +1,7 @@
 # Personal shell preferences.
 # Created by Artur Kerge
 # Sometime in 2019 AD
+# https://github.com/akerge/shell/
 
 PATH="/usr/local/bin:/usr/bin:/bin"
 # ^ this should be idempotent
