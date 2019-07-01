@@ -9,6 +9,7 @@ PATH="/usr/local/bin:/usr/bin:/bin"
 red='\[\033[31m\]'
 bold_red='\[\033[1;31m\]'
 yellow='\[\033[33m\]'
+purple='\[\033[1;35m\]'
 green='\[\033[32m\]'
 blue='\[\033[01;34m\]'
 bold_bluish='\[\033[01;32m\]'
@@ -38,7 +39,7 @@ if [ $(id -u) -eq 0 ]; then
     # apostrophes work within quotation marks.
     PS1="$normal·$bold_red\u@\h$normal·$green$location·$normal\$ $default"
 else
-    PS1="$normal·$bold_bluish\u@\h$normal·$blue$location$normal·\$ $default"
+    PS1="$normal·$bold_bluish\u@$purple\h$normal·$blue$location$normal·\$ $default"
 fi
 
 HISTSIZE=1000
