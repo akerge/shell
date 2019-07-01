@@ -37,7 +37,7 @@ default='\[$(tput sgr0)\]'
 input=""
 if [ $(id -u) -eq 0 ]; then
     # apostrophes work within quotation marks.
-    PS1="$normal·$bold_red\u@\h$normal·$green$location·$normal\$ $default"
+    PS1="$normal·$bold_red\u@$purple\h$normal·$green$location·$normal\$ $default"
 else
     PS1="$normal·$bold_bluish\u@$purple\h$normal·$blue$location$normal·\$ $default"
 fi
