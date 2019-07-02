@@ -7,13 +7,14 @@ PATH="/usr/local/bin:/usr/bin:/bin"
 # ^ this should be idempotent
 
 red='\[\033[31m\]'
-bold_red='\[\033[1;31m\]'
+red_bold='\[\033[1;31m\]'
 yellow='\[\033[33m\]'
 purple='\[\033[1;35m\]'
 green='\[\033[32m\]'
 blue='\[\033[01;34m\]'
-bold_bluish='\[\033[01;32m\]'
+bluish_bold='\[\033[01;32m\]'
 normal='\[\033[00m\]'
+gray_light='\[\033[40;0;37m\]'
 
 usr='\u'
 clock='\t'
@@ -37,9 +38,9 @@ default='\[$(tput sgr0)\]'
 input=""
 if [ $(id -u) -eq 0 ]; then
     # apostrophes work within quotation marks.
-    PS1="$normal·$bold_red\u@$purple\h$normal·$green$location·$normal\$ $default"
+    PS1="$normal·$red_bold\u@$purple\h$normal·$green$location·$normal\$ $default"
 else
-    PS1="$normal·$bold_bluish\u@$purple\h$normal·$blue$location$normal·\$ $default"
+    PS1="$normal·$bluish_bold\u@$gray_light\h$normal·$blue$location$normal·\$ $default"
 fi
 
 HISTSIZE=1000
