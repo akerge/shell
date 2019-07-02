@@ -33,6 +33,7 @@ default='\[$(tput sgr0)\]'
 # OR switch to ZSH which has $bash_preexec and other nifty features.
 
 # TODO: 
+#  * Select distinct color-scheme for user and root prompt
 #  X add install script for necessary applications
 #    x snap [or flatpak or better] for slack
 #    x neofetch
