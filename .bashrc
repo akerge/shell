@@ -26,12 +26,17 @@ default='\[$(tput sgr0)\]'
 #PROMPT_COMMAND='date +%T'
 # with trap prints time twice.
 #PROMPT_COMMAND='trap "date +%T" DEBUG'
+# Regarding tracking execution time,
+#  then github.com/paypal/gnomon is a handy tool.
+# Without adding anything external, prepending `time` to a command 
+#  prints out execution time.
+# OR switch to ZSH which has $bash_preexec and other nifty features.
 
 # TODO: 
-#  * add install script for necessary applications
-#    * snap [or flatpak or better] for slack
-#    * neofetch
-#  * show time after command has been entered. Either with PROMPT_COMMAND or bash-preexex
+#  X add install script for necessary applications
+#    x snap [or flatpak or better] for slack
+#    x neofetch
+#  x show time after command has been entered. Either with PROMPT_COMMAND or bash-preexec
 #    https://github.com/rcaloras/bash-preexec/blob/master/bash-preexec.sh
 # NOTES:
 #  * bash 4.4.12 on Debian doesn't really like \e as an escape character
