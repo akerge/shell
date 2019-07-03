@@ -66,6 +66,7 @@ alias cdp='cd -P' # not this tho
 # git
 alias clone='git clone'
 alias commit='git commit -m'
+alias co='git commit -m'
 alias push='git push'
 alias status='git status'
 alias log='git log'
