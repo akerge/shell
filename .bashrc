@@ -52,8 +52,8 @@ fi
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-alias ll="ls -lah"
-alias lt="ls -laht"
+alias ll="ls -lah --color=auto" 
+alias lt="ls -laht --color=auto" # sort by modification time
 alias fd="cd -" # change to previous directory cd-d from
 alias cdr='cd -'
 # Below is from https://github.com/aashutoshrathi/awesome-bashrc#fast-upwards-navigation
