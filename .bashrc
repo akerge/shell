@@ -55,7 +55,7 @@ HISTFILESIZE=2000
 alias ll="ls -lah --color=auto" 
 alias lt="ls -laht --color=auto" # sort by modification time
 alias fd="cd -" # change to previous directory cd-d from (mnemonic: fd - from dir)
-alias fs="find . find . -maxdepth 1 -type l -ls" # find symlinks in current dir
+alias fs="find . -maxdepth 1 -type l -ls" # find symlinks in current dir
 alias cdr='cd -'
 # Below is from https://github.com/aashutoshrathi/awesome-bashrc#fast-upwards-navigation
 alias ..='cd ..'
