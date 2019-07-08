@@ -56,13 +56,13 @@ alias ll="ls -lah --color=auto"
 alias lt="ls -laht --color=auto" # sort by modification time
 alias fd="cd -" # change to previous directory cd-d from (mnemonic: fd - from dir)
 alias fs="find . -maxdepth 1 -type l -ls" # find symlinks in current dir
-alias cdr='cd -'
+alias cdr='cd -' # return to previous folder where cd-d to
 # Below is from https://github.com/aashutoshrathi/awesome-bashrc#fast-upwards-navigation
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias .....='cd ../../../../'
-alias cdp='cd -P' # not this tho
+alias cdp='cd -P' # not this tho -- use physical dir structure
 # this is prolly also copied from the link before
 # git
 alias clone='git clone'
