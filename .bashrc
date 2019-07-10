@@ -82,6 +82,7 @@ alias update='sudo apt update'
 alias list='apt list --upgradable'
 alias upgrade='sudo apt upgrade'
 alias inst='sudo apt install'
+alias search='apt search '
 # time
 alias now='date +"%T"'
 alias t='date +"%T"'
