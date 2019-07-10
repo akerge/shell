@@ -86,4 +86,4 @@ alias inst='sudo apt install'
 alias now='date +"%T"'
 alias t='date +"%T"'
 
-trap "date +%T" DEBUG
+trap "date +%T" DEBUG # this adds timestamp after entering command
