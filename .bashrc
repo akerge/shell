@@ -81,6 +81,7 @@ alias resethard='git reset --hard '
 alias update='sudo apt update'
 alias list='apt list --upgradable'
 alias upgrade='sudo apt upgrade'
+alias insta='sudo apt install'
 alias inst='sudo apt install'
 alias search='apt search '
 # time
