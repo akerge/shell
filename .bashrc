@@ -39,7 +39,7 @@ default='\[$(tput sgr0)\]'
 #  x show time after command has been entered. Either with PROMPT_COMMAND or bash-preexec
 #    https://github.com/rcaloras/bash-preexec/blob/master/bash-preexec.sh
 # NOTES:
-#  * bash 4.4.12 on Debian doesn't really like \e as an escape character
+#  * bash 4.4.12 on Debian 9.9 stretch doesn't really like \e as an escape character
 input=""
 if [ $(id -u) -eq 0 ]; then
     # apostrophes work within quotation marks.
