@@ -33,6 +33,7 @@ default='\[$(tput sgr0)\]'
 # OR switch to ZSH which has $bash_preexec and other nifty features.
 
 # TODO: 
+#  * Select distinct color-scheme for user and root prompt
 #  X add install script for necessary applications
 #    x snap [or flatpak or better] for slack
 #    x neofetch
@@ -51,20 +52,22 @@ fi
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-alias ll="ls -lah"
-alias lt="ls -laht"
-alias fd="cd -" # change to previous directory cd-d from
-alias cdr='cd -'
+alias ll="ls -lah --color=auto" 
+alias lt="ls -laht --color=auto" # sort by modification time
+alias fd="cd -" # change to previous directory cd-d from (mnemonic: fd - from dir)
+alias fs="find . -maxdepth 1 -type l -ls" # find symlinks in current dir
+alias cdr='cd -' # return to previous folder where cd-d to
 # Below is from https://github.com/aashutoshrathi/awesome-bashrc#fast-upwards-navigation
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias .....='cd ../../../../'
-alias cdp='cd -P' # not this tho
+alias cdp='cd -P' # not this tho -- use physical dir structure
 # this is prolly also copied from the link before
 # git
 alias clone='git clone'
 alias commit='git commit -m'
+alias co='git commit -m'
 alias push='git push'
 alias status='git status'
 alias log='git log'
@@ -78,9 +81,11 @@ alias resethard='git reset --hard '
 alias update='sudo apt update'
 alias list='apt list --upgradable'
 alias upgrade='sudo apt upgrade'
+alias insta='sudo apt install'
 alias inst='sudo apt install'
+alias search='apt search '
 # time
 alias now='date +"%T"'
 alias t='date +"%T"'
 
-trap "date +%T" DEBUG
+trap "date +%T" DEBUG # this adds timestamp after entering command

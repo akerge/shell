@@ -11,3 +11,9 @@ sudo snap install slack --classic
 sudo snap install spotify
 sudo snap install atom --classic
 printf "\nDone!\n"
+
+# Varia
+## speedreading
+#   https://github.com/xypiie/spread0r flashes text
+#   https://poppler.freedesktop.org/ pdf to txt converter, requires
+#   cmake
