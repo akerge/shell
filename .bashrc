@@ -49,6 +49,8 @@ else
     PS1="$normal·$bluish_bold\u@$gray_light\h$normal·$blue$location$normal·\$ $default"
 fi
 
+trap "date +%T" DEBUG # this adds timestamp after entering command
+
 HISTSIZE=1000
 HISTFILESIZE=2000
 
@@ -87,5 +89,6 @@ alias search='apt search '
 # time
 alias now='date +"%T"'
 alias t='date +"%T"'
-
-trap "date +%T" DEBUG # this adds timestamp after entering command
+# latex/pdf
+alias tex2pdf='pdflatex'
+alias pdfview='evince'
