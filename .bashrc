@@ -43,11 +43,13 @@ default='\[$(tput sgr0)\]'
 #  * bash 4.4.12 on Debian 9.9 stretch doesn't really like \e as an escape character
 input=""
 if [ $(id -u) -eq 0 ]; then
-    # apostrophes work within quotation marks.
-    PS1="$normal·$red_bold\u@$purple\h$normal·$green$location·$normal\$ $default"
+    # apostrophes work within quotation marks, but not the other way around.
+    PS1="$normal·$red_bold\u@$purple\h$normal·$green$location·$normal# $default"
 else
     PS1="$normal·$bluish_bold\u@$gray_light\h$normal·$blue$location$normal·\$ $default"
 fi
+
+trap "date +%T" DEBUG # this adds timestamp after entering command
 
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -87,5 +89,6 @@ alias search='apt search '
 # time
 alias now='date +"%T"'
 alias t='date +"%T"'
-
-trap "date +%T" DEBUG # this adds timestamp after entering command
+# latex/pdf
+alias tex2pdf='pdflatex'
+alias pdfview='evince'
