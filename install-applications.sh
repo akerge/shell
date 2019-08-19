@@ -6,7 +6,7 @@ printf "\nsnap\n====\n slack\n spotify\n atom\n"
 printf "\n\n"
 read -t 12 -p "Press Ctrl-C to cancel or do nothing for 12s to continue..."
 sudo apt update && sudo apt upgrade
-sudo apt install neofetch snapd texlive pdflatex texstudio
+sudo apt install neofetch snapd texlive pdflatex texstudio python3 python3-pip 
 sudo snap install slack --classic
 sudo snap install spotify
 sudo snap install atom --classic
