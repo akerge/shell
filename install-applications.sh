@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apps="neofetch snapd texlive texstudio python3 python3-pip vim" 
+apps="neofetch snapd texlive texstudio python3 python3-pip vim pwgen" 
 snaps=("spotify" "atom --classic" "slack --classic")
 dash="======"
 
