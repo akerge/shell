@@ -3,6 +3,10 @@
 # Sometime in 2019 AD
 # https://github.com/akerge/shell/
 
+# If not running interactively, don't do anything
+# This is needed for `scp`, otherwise secure copy fails.
+[[ $- == *i* ]] || return
+
 PATH="/usr/local/bin:/usr/bin:/bin"
 # ^ this should be idempotent
 
