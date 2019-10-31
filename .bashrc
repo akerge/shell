@@ -37,6 +37,7 @@ default='\[$(tput sgr0)\]'
 # OR switch to ZSH which has $bash_preexec and other nifty features.
 
 # TODO: 
+#  * add an alias that extracts ip address from `ip a`
 #  * Select distinct color-scheme for user and root prompt
 #  X add install script for necessary applications
 #    x snap [or flatpak or better] for slack
