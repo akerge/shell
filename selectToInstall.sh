@@ -5,16 +5,35 @@
 ######################################################
 
 # Array of applications to be installed via apt
-apts=("neofetch" "glances")
+apts=(neofetch glances)
 
 # print function for easier reading
 function printElement(){
 	printf "Install $1? [Y/n] "
 }
 
-for ((a=0; a<"${#apts[@]}"; a++));
+# global array
+declare selectedToInstall
+#selectedToInstall=()
+
+# loop over array
+for a in ${apts[*]}
         do
-                printElement ${apts[a]}
-                printf "\n"
+                printElement $a 
+                read response
+		case $response in
+			[nN])
+				echo not adding
+				break
+				;;
+			*)
+				selectedToInstall+="$a"
+				echo adding $a
+				;;
+		esac
+		printf "\n"
         done
 
+# Checking, what has been selected
+echo selectedToInstall array:
+echo ${selectedToInstall[@]}
