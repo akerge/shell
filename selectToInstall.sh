@@ -12,12 +12,19 @@ function printElement(){
 	printf "Install $1? [Y/n] "
 }
 
-# global array
-declare selectedToInstall
-#selectedToInstall=()
+# global arrays
+declare selectedToInstallApts
+declare selectedToInstallSnaps
 
 # loop over array
-for a in ${apts[*]}
+function loopOverApps(){
+arrToLoopOver=$1[@]
+echo arrToLoopOver: $arrToLoopOver
+echo \$2: $2
+arrToAddTo=$2
+echo arrToAddTo: $arrToAddTo
+# exclamation marks expands variable
+for a in "${!arrToLoopOver}";
         do
                 printElement $a 
                 read response
@@ -27,13 +34,16 @@ for a in ${apts[*]}
 				break
 				;;
 			*)
-				selectedToInstall+="$a"
+				$2+=('$a')
 				echo adding $a
 				;;
 		esac
 		printf "\n"
         done
+}
 
+# show applications in apts array and add chosen apps to another array
+loopOverApps "apts" "selectedToInstallApts"
 # Checking, what has been selected
-echo selectedToInstall array:
-echo ${selectedToInstall[@]}
+echo selectedToInstallApts array:
+echo ${selectedToInstallApts[@]}
