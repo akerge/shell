@@ -14,12 +14,14 @@ function printElement(){
 }
 
 function printArray(){
+# passing array name as argument is from
+# https://stackoverflow.com/a/26443029
 	local -n ref="$1"
 	for k in "${ref[@]}";
-		do 
-		echo " $k"
+		do
+			printf "\n * $k"
+#		echo -e " $k\n"
 		done
-	
 }
 # global arrays
 declare installApts
@@ -27,12 +29,7 @@ declare installSnaps
 
 function loopOverApps(){
 # loop over array
-# ===============
-# use `local -n` instead as per
-# https://stackoverflow.com/a/29379084
-# $1 array to loop over
-# $2 array to add to if user wants to install that app
-	echo " this is \$1: $1"
+	echo "Selection from $1"
 	local -n ref="$1"
 	for a in "${ref[@]}";
         	do
@@ -44,39 +41,54 @@ function loopOverApps(){
 					;;
 				*)
 					echo " adding $a"
-					arrToAddTo+=" $a"
+					arrToAddTo+=("$a")
 					;;
 			esac
 			printf "\n"
         	done
 	if [ $1 == "apts" ]; then
 		installApts=( "${arrToAddTo[@]}" )
-		echo " arrToAddTo: ${arrToAddTo[@]}"
 	elif [ $1 == "snaps" ]; then
 		installSnaps=( "${arrToAddTo[@]}" )
 	else
 		echo " THIS SHOULD NOT HAPPEN"
 	fi
-	unset localArray
 	unset arrToAddTo
-	unset arrToLoopOver
 }
 
-# show applications in apts array and add chosen apps to another array
+function installApps(){
+	if [ $1 == "apts" ]; then
+		install="sudo apt-get -y install "
+		local -n ref="installApts"
+	elif [ $1 == "snaps" ]; then
+		install="sudo snap install "
+		local -n ref="installSnaps"
+	else
+		echo " THIS SHOULD NOT HAPPEN"
+	fi
+	for l in "${ref[@]}";
+		do 
+		eval "$install $l"
+		done
+	
+}
+
 loopOverApps "apts" 
 loopOverApps "snaps" 
-echo "Following have been selected to install:"
-printArray "apts"
-printArray "snaps"
+printf "Following have been selected to install:"
+printArray "installApts"
+printArray "installSnaps"
 printf "\nIs this correct? [Y/n] "
 read YN
 case $YN in
 	[nN])
-		echo -e "\nPlease re-run script to re-select applications to install."
+		echo -e "\nPlease re-run script to re-select applications to install or whatever."
 		echo " bash $0"
+		echo -e "Have a great day!"
 		;;
 	*)
-		echo "Here will be install function"
+		installApps "apts"
+		installApps "snaps"
 		;;
 esac
 
