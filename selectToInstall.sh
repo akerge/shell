@@ -52,12 +52,8 @@ function loopOverApps(){
 	if [ $1 == "apts" ]; then
 		installApts=( "${arrToAddTo[@]}" )
 		echo " arrToAddTo: ${arrToAddTo[@]}"
-		echo " selectedToInstallApts content:"
-		echo " ${selectedToInstallApts[@]}"
 	elif [ $1 == "snaps" ]; then
 		installSnaps=( "${arrToAddTo[@]}" )
-		echo " selectedToInstallSnaps content:"
-		echo " ${selectedToInstallSnaps[@]}"
 	else
 		echo " THIS SHOULD NOT HAPPEN"
 	fi
@@ -72,10 +68,15 @@ loopOverApps "snaps"
 echo "Following have been selected to install:"
 printArray "apts"
 printArray "snaps"
-echo -e "\nIs this correct?"
+printf "\nIs this correct? [Y/n] "
+read YN
+case $YN in
+	[nN])
+		echo -e "\nPlease re-run script to re-select applications to install."
+		echo " bash $0"
+		;;
+	*)
+		echo "Here will be install function"
+		;;
+esac
 
-# Checking, what has been selected
-#	for j in "${selectedToInstallApts[@]}";
-#		do 
-#		echo " $j"
-#		done
