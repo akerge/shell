@@ -28,8 +28,9 @@ declare installApts
 declare installSnaps
 
 function loopOverApps(){
-# loop over array
-	echo "Selection from $1"
+# loop over array and select application(s) to install
+# add the selected application to another array (install apts/snaps)
+	echo "Selection from $1:"
 	local -n ref="$1"
 	for a in "${ref[@]}";
         	do
@@ -57,7 +58,13 @@ function loopOverApps(){
 }
 
 function installApps(){
-	if [ $1 == "apts" ]; then
+	if [[ $1 == "apts" && ! -z $2 ]]; then
+		install="sudo apt-get -y install "
+		local -n ref="$1"
+	elif [[ $1 == "snaps" && ! -z $2 ]]; then
+		install="sudo snap install "
+		local -n ref="$1"
+	elif [ $1 == "apts" ]; then
 		install="sudo apt-get -y install "
 		local -n ref="installApts"
 	elif [ $1 == "snaps" ]; then
@@ -73,22 +80,58 @@ function installApps(){
 	
 }
 
-loopOverApps "apts" 
-loopOverApps "snaps" 
-printf "Following have been selected to install:"
-printArray "installApts"
-printArray "installSnaps"
-printf "\nIs this correct? [Y/n] "
-read YN
-case $YN in
-	[nN])
-		echo -e "\nPlease re-run script to re-select applications to install or whatever."
-		echo " bash $0"
-		echo -e "Have a great day!"
-		;;
-	*)
+# was annoyed for repetetive lines
+function printAll(){
+	if [ ! -z $1 ]; then
+		printArray "installApts"
+		printArray "installSnaps"
+	else	
+		printArray "apts"
+		printArray "snaps"
+	fi
+}
+
+function loopAll(){
+	loopOverApps "apts" 
+	loopOverApps "snaps" 
+}
+
+function installAll(){
+	if [ ! -z $1 ]; then
+		echo "Installing all apps"
+		installApps "apts" "all"
+		installApps "snaps" "all"
+	else
+		echo installing selected apps
 		installApps "apts"
 		installApps "snaps"
+	fi
+}
+
+printf "Install all apps? [Y/n]\n"
+printAll
+printf "\n\n[Y] to install all, [n] to select what to install. "
+read ALL
+case $ALL in
+	[nN])
+		loopAll
+		printf "Following have been selected to install:"
+		printAll "check"
+		printf "\nIs this correct? [Y/n] "
+		read YN
+		case $YN in
+			[nN])
+				echo -e "\nPlease re-run script to re-select applications to install or whatever."
+				echo " bash $0"
+				echo -e "Have a great day!"
+				;;
+			*)
+				installAll
+				;;
+		esac
+		;;
+	*)
+		installAll "yes"
 		;;
 esac
 
