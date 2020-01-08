@@ -5,16 +5,25 @@
 ######################################################
 
 # Array of applications to be installed via apt
-apts=(neofetch glances vim)
+apts=("neofetch" "glances" "vim")
+snaps=("spotify" "slack --classic") 
 
 # print function for easier reading
 function printElement(){
 	printf "Install $1? [Y/n] "
 }
 
+function printArray(){
+	local -n ref="$1"
+	for k in "${ref[@]}";
+		do 
+		echo " $k"
+		done
+	
+}
 # global arrays
-declare selectedToInstallApts
-declare selectedToInstallSnaps
+declare installApts
+declare installSnaps
 
 function loopOverApps(){
 # loop over array
@@ -22,57 +31,51 @@ function loopOverApps(){
 # use `local -n` instead as per
 # https://stackoverflow.com/a/29379084
 # $1 array to loop over
-# $2 arrayt to add to if user wants to install that app
-	local -n localArray
-	arrToLoopOver="$1"
-	echo " apts content: ${apts[@]}"
-	echo " arr len: ${#apts[@]}"
-	localArray=( "${apts[@]}" )
-	echo " localArray content: ${localArray[@]}"
-	echo " localArray len: ${#localArray[@]}"
-	echo " arrToLoopOver: ${arrToLoopOver[@]}"
-	echo " arr len: ${#arrToLoopOver[*]}"
-	arrToAddTo="$2"
-	echo " arrToAddTo: $arrToAddTo"
-	echo " arr len: ${#arrToAddTo[@]}"
-	echo " $arrToAddTo content:"
-	echo " ${arrToAddTo[@]}"
-	# exclamation marks expands variable
-	for a in "${localArray[@]}";
+# $2 array to add to if user wants to install that app
+	echo " this is \$1: $1"
+	local -n ref="$1"
+	for a in "${ref[@]}";
         	do
          		printElement $a 
-			localUnit=$a
-			echo " \$localUnit: $localUnit"
                		read response
 			case $response in
 				[nN])
-					echo not adding
-					echo " ${arrToAddTo[@]}"
-				#	break
+					echo " not adding $a"
 					;;
 				*)
 					echo " adding $a"
-					local localUnit="$a"
-					echo " to array $2"
-					echo " \$localUnit: $localUnit"
-					echo " \$arrToAddTo: ${arrToAddTo[@]}"
-					if [ "${arrToAddTo[@]}" == "" ];then
-						arrToAddTo=("${arrToAddTo}" "$localUnit")
-						
-					else
-						arrToAddTo+="$localUnit"
-					fi
-						echo " \$arrToAddTo: ${arrToAddTo[@]}"
-						echo " \$selectedToInstallApts: ${selectedToInstallApts[@]}"
+					arrToAddTo+=" $a"
 					;;
 			esac
 			printf "\n"
         	done
+	if [ $1 == "apts" ]; then
+		installApts=( "${arrToAddTo[@]}" )
+		echo " arrToAddTo: ${arrToAddTo[@]}"
+		echo " selectedToInstallApts content:"
+		echo " ${selectedToInstallApts[@]}"
+	elif [ $1 == "snaps" ]; then
+		installSnaps=( "${arrToAddTo[@]}" )
+		echo " selectedToInstallSnaps content:"
+		echo " ${selectedToInstallSnaps[@]}"
+	else
+		echo " THIS SHOULD NOT HAPPEN"
+	fi
+	unset localArray
+	unset arrToAddTo
+	unset arrToLoopOver
 }
 
 # show applications in apts array and add chosen apps to another array
-loopOverApps "apts" "selectedToInstallApts"
+loopOverApps "apts" 
+loopOverApps "snaps" 
+echo "Following have been selected to install:"
+printArray "apts"
+printArray "snaps"
+echo -e "\nIs this correct?"
 
 # Checking, what has been selected
-echo selectedToInstallApts array:
-echo ${selectedToInstallApts[@]}
+#	for j in "${selectedToInstallApts[@]}";
+#		do 
+#		echo " $j"
+#		done
