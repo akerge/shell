@@ -12,6 +12,10 @@ Home of PS1 beauty :sparkles:
 
 This script will update apt and install work-related applications: `neofetch`, `snapd`: `slack`, `spotify`, `atom`.
 
+## [selectToInstall.sh](selectToInstall.sh)
+
+Lists applications and asks if to install all or select and install specific ones.
+
 ## [missingSlackIcon.sh](missingSlackIcon.sh)
 
 Fixes missing slack icon.
