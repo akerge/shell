@@ -5,11 +5,11 @@
 ######################################################
 
 # Array of applications to be installed via apt
-apts=("neofetch" "glances" "vim")
+apts=("neofetch" "glances" "vim" "curl" "git")
 snaps=("spotify" "slack --classic") 
 
-# print function for easier reading
 function printElement(){
+# print function for easier reading
 	printf "Install $1? [Y/n] "
 }
 
@@ -23,6 +23,7 @@ function printArray(){
 #		echo -e " $k\n"
 		done
 }
+
 # global arrays
 declare installApts
 declare installSnaps
@@ -58,6 +59,7 @@ function loopOverApps(){
 }
 
 function installApps(){
+# sanity check to install all or select apps
 	if [[ $1 == "apts" && ! -z $2 ]]; then
 		install="sudo apt-get -y install "
 		local -n ref="$1"
