@@ -3,9 +3,13 @@
 ######################################################
 # Script install all or select applications to install
 ######################################################
+# Made by akerge
+#
+# TODO:
+#  * make POSIX compliant
 
 # Array of applications to be installed via apt
-apts=("neofetch" "glances" "vim" "curl" "git")
+apts=("neofetch" "glances" "vim" "curl" "git" "tree")
 snaps=("spotify" "slack --classic") 
 
 function printElement(){
