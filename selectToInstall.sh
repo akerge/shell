@@ -117,6 +117,7 @@ function installAll(){
 printf "Install all apps? [Y/n]\n"
 printAll
 printf "\n\n[Y] to install all, [n] to select what to install. "
+printf "\nCtrl+C to cancel. "
 read ALL
 case $ALL in
 	[nN])
