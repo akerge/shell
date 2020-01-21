@@ -9,7 +9,7 @@
 #  * make POSIX compliant
 
 # Array of applications to be installed via apt
-apts=("neofetch" "glances" "vim" "curl" "git" "tree" "pwgen" "nmap")
+apts=("neofetch" "glances" "vim" "curl" "git" "tree" "pwgen" "nmap" "iftop" "nethogs")
 snaps=("spotify" "slack --classic") 
 
 function printElement(){
