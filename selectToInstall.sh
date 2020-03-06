@@ -116,7 +116,7 @@ function installAll(){
 		installApps "apts" "all"
 		installApps "snaps" "all"
 	else
-		echo installing selected apps
+		echo "Installing selected apps"
 		installApps "apts"
 		installApps "snaps"
 	fi
