@@ -9,7 +9,7 @@
 #  * make POSIX compliant
 
 # Array of applications to be installed via apt
-apts=("neofetch" "glances" "vim" "curl" "git" "tree" "pwgen" "nmap" "iftop" "nethogs" "chrome-gnome-shell" "meson" "sassc" "libglib2.0-dev" "libxml2-utils" "gparted")
+apts=("neofetch" "glances" "vim" "curl" "git" "tree" "pwgen" "nmap" "iftop" "nethogs" "chrome-gnome-shell" "meson" "sassc" "libglib2.0-dev" "libxml2-utils" "gparted" "ncdu")
 # meson to libxml2-utils are for Yaru shell appearance in tweaks on ubuntu
 # https://www.linuxuprising.com/2019/10/how-to-get-dark-gnome-shell-menus-and.html
 snaps=("spotify" "slack --classic") 
