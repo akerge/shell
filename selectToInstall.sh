@@ -66,25 +66,31 @@ function loopOverApps(){
 
 function installApps(){
 # sanity check to install all or select apps
-	if [[ $1 == "apts" && ! -z $2 ]]; then
+	if [[ $1 == "apts" || ! -z $2 ]]; then
 		install="sudo apt-get -y install "
 		local -n ref="$1"
-	elif [[ $1 == "snaps" && ! -z $2 ]]; then
-		install="sudo snap install "
-		local -n ref="$1"
+		eval "$install ${ref[@]}"
 	elif [ $1 == "apts" ]; then
 		install="sudo apt-get -y install "
 		local -n ref="installApts"
+		eval "$install ${ref[@]}"
+	elif [[ $1 == "snaps" && ! -z $2 ]]; then
+		install="sudo snap install "
+		local -n ref="$1"
+		for l in "${ref[@]}";
+			do 
+			eval "$install $l"
+			done
 	elif [ $1 == "snaps" ]; then
 		install="sudo snap install "
 		local -n ref="installSnaps"
+		for l in "${ref[@]}";
+			do 
+			eval "$install $l"
+			done
 	else
 		echo " THIS SHOULD NOT HAPPEN"
 	fi
-	for l in "${ref[@]}";
-		do 
-		eval "$install $l"
-		done
 	
 }
 
