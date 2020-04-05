@@ -99,3 +99,4 @@ alias t='date +"%T"'
 # latex/pdf
 alias tex2pdf='pdflatex'
 alias pdfview='evince'
+alias rmnt='sudo mount -o rw,users,umask=000 ' # rmnt <what> <where>
