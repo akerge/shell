@@ -14,8 +14,6 @@ underline(){
   for ((z=0; z<$len; z+=1));do printf "=";done
   printf "\n"
 }
-
-len=$(($hostname_len+$txt_len))
 underline "$hostname $text"
 sudo systemctl stop httpd
 echo "Wait $wait_time sec..."
