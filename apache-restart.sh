@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Why? when there is no `systemctl restart httpd` right given
 hostname=$(hostname)
 wait_time=5
 hostname_len=${#hostname}
