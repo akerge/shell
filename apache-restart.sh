@@ -1,7 +1,7 @@
 #!/bin/bash
 
 hostname=$(hostname)
-name=${hostname:-Host_without_hostname}
+wait_time=5
 hostname_len=${#hostname}
 text="Apache restart!"
 txt_len=${#text}
@@ -15,17 +15,16 @@ underline(){
   printf "\n"
 }
 
-echo "$hostname $text"
 len=$(($hostname_len+$txt_len))
-for ((z=0; z<$len+1; z+=1));do printf "=";done
-printf "\n"
+underline "$hostname $text"
 sudo systemctl stop httpd
-echo "Wait 20 sec..."
-for t in {1..20}
+echo "Wait $wait_time sec..."
+for ((y=0; y<$wait_time; y+=1))
 do
   printf "."
   sleep 1
 done
+printf "\n"
 dun="Done! Restarting..."
 underline "$dun"
 sudo systemctl start httpd
