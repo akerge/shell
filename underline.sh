@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Usage: ./underline.sh "TL;DR"
   arg="$1"
   echo "$arg" 
 underline(){
