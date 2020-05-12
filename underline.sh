@@ -1,15 +1,10 @@
 #!/bin/bash
 
-hostname=$(hostname)
-apacheresa="Apache restart!"
-comb="$hostname $apacheresa"
+  arg="$1"
+  echo "$arg" 
 underline(){
-  arg=$1
-  echo $1
   len=${#arg}
-#  echo "arg: $1"
-#  echo "len: $len"
   for ((z=0; z<$len; z+=1));do printf "=";done
   printf "\n"
 }
-underline "$comb"
+underline "$arg"
