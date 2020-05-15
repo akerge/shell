@@ -65,7 +65,9 @@ alias lt="ls -laht --color=auto" # sort by modification time
 alias fd="cd -" # change to previous directory cd-d from (mnemonic: fd - from dir)
 alias fs="find . -maxdepth 1 -type l -ls" # find symlinks in current dir
 alias cdr='cd -' # return to previous folder where cd-d to
-alias lsd='ls -lah | egrep "^d"' # lists all folders, incl. hidden, but no colors
+alias lsd='ls -lah | egrep "^d"' 
+alias lsd='ls -d1 */ --color=always | cut -f1 -d "/"' 
+alias lsda='ls -lah --color=always | egrep ^d' # lists all folders in color
 # Below is from https://github.com/aashutoshrathi/awesome-bashrc#fast-upwards-navigation
 alias ..='cd ..'
 alias ...='cd ../../../'
